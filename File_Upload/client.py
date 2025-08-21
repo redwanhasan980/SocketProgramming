@@ -7,7 +7,7 @@ from pathlib import Path
 
 class FileClient:
     # 8888 is an unprivileged port, commonly used for development/testing servers.
-    def __init__(self, host='localhost', port=8888):
+    def __init__(self, host='127.0.0.1', port=8888):
         self.host, self.port = host, port
         self.sock = None
 
@@ -151,7 +151,7 @@ def main():
             elif cmd[0] == 'download' and len(cmd) >= 2:
                 c.download_file(cmd[1], cmd[2] if len(cmd) > 2 else None)
             else:
-                print("Unknown command. Type 'help'")
+                print("Unknown command.")
     except KeyboardInterrupt:
         print("\nUse 'quit' to exit")
     finally:

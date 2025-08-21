@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 class FileServer:
-    def __init__(self, host='localhost', port=8888, storage_dir='server_files'):
+    def __init__(self, host='0.0.0.0', port=8888, storage_dir='server_files'):
         self.host, self.port = host, port
         self.storage_dir = Path(storage_dir)
         self.storage_dir.mkdir(exist_ok=True)
