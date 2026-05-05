@@ -7,7 +7,7 @@ from pathlib import Path
 
 class FileClient:
     # 8888 is an unprivileged port, commonly used for development/testing servers.
-    def __init__(self, host='127.0.0.1', port=8888):
+    def __init__(self, host='10.101.7.243', port=8888):
         self.host, self.port = host, port
         self.sock = None
 

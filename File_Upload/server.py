@@ -94,7 +94,9 @@ class FileServer:
 
     def receive_file(self, sock, path, size):
         try:
-            with open(path, 'wb') as f:
+            with open(path, 'wb') as f:#w → write mode (create new file or overwrite existing).
+
+                                        #b → binary mode (the file will be written as raw bytes, not text).
                 recvd = 0
                 while recvd < size:
                     chunk = sock.recv(min(8192, size-recvd))
@@ -112,14 +114,15 @@ class FileServer:
         name = os.path.basename(cmd.get('filename', ''))
         if not name:
             return {'status': 'error', 'message': 'Filename required'}
-        path = self.storage_dir/name
+        path = self.storage_dir/name # => "/home/user/uploads/file.txt" concetenates the directory and filename.
         if path.exists():
-            path.unlink()
+            path.unlink() # Deletes the file at the specified path.
             return {'status': 'success', 'message': f"Deleted {name}"}
         return {'status': 'error', 'message': 'File not found'}
 
     def download_file(self, cmd, sock):
-        name = os.path.basename(cmd.get('filename', ''))
+        name = os.path.basename(cmd.get('filename', '')) #This extracts the final component (base name) of a file path, stripping away the directory part.
+                                                          # "/home/user/docs/report.pdf" ->  # "report.pdf"
         if not name:
             return {'status': 'error', 'message': 'Filename required'}
         path = self.storage_dir/name  # Path(self.storage_dir, name)

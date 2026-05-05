@@ -30,8 +30,8 @@ def send_messages(client_socket):
 
 
 def main():
-    host = '127.0.0.1'  # server IP (localhost for testing)
-    port = 8888
+    host = '10.101.7.243'  # server IP (localhost for testing)
+    port = 12345
 
     # socket.AF_INET6 for IPv6 for udp SOCK_DGRAM
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

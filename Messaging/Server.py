@@ -29,7 +29,7 @@ def send_messages(conn):
 
 def main():
     host = '0.0.0.0'   # special IP address that means “all available network interfaces
-    port = 8888
+    port = 12345
 
     server_socket = socket.socket(
         socket.AF_INET, socket.SOCK_STREAM)  # UDP (SOCK_DGRAM)
